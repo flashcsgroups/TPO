@@ -11,37 +11,45 @@ import re
 failed_pages = {}
 all_pages = {}
 stack = []
-startedNetloc = ''
+started_domen = ''
+MAX_DEPTH = 300
 
 
-def have_protocol( url ):
-    parsedUrl = urlparse(url)
-    if (parsedUrl.scheme in ['https', 'http', 'ftp']):
+def have_protocol(url):
+    parsed_url = urlparse(url)
+    if parsed_url.scheme in ['https', 'http', 'ftp']:
         return True
     return False
 
 
-def check_URL():
-    while (len(stack) > 0):
+def check_url():
+    while len(stack) > 0:
         url = stack.pop()
+        print url
         try:
-            if (not (urlparse(url).netloc == startedNetloc)):
+            if get_domen_name(urlparse(url).netloc) != started_domen:
                 break
-            if (url in all_pages.keys()):
+            if url in all_pages.keys():
                 break
-            html = urllib.urlopen(url)
+            try:
+                html = urllib.urlopen(url)
+            except:
+                failed_pages[url] = '401'
+                continue
             data = html.read()
             code = html.getcode()
             all_pages[url] = code
-            if (code in [200, 301]):
+            if code in [200, 301] and len(stack) < MAX_DEPTH:
                 urls = []
                 urls.extend(re.findall('<a href="(.+?)".+?>', data, re.DOTALL))
-                for tempUrl in urls:
-                    if (not have_protocol(tempUrl)):
-                        tempUrl = urljoin(url, tempUrl)
-                    if (tempUrl not in all_pages.keys()):
-                        print tempUrl
-                        stack.append(tempUrl)
+                for temp_url in urls:
+                    if temp_url == '/' or temp_url[0] == '"' or temp_url[0] == '{':
+                        continue
+                    if not have_protocol(temp_url):
+                        temp_url = urljoin(url, temp_url)
+                    if get_domen_name(urlparse(temp_url).netloc) == started_domen:
+                        if temp_url not in all_pages.keys():
+                            stack.append(temp_url)
             else:
                 failed_pages[url] = code
         except socket.error, e:
@@ -58,14 +66,21 @@ def perform_output():
         f.write('{0} - {1}\n'.format(key, failed_pages[key]))
 
 
+def get_domen_name(netloc):
+    first = netloc[:netloc.find('.')]
+    domen = netloc[netloc.find('.') + 1: len(netloc)]
+    if domen.find('.') == -1:
+        return netloc
+    else:
+        return domen
+    
+
 if len(sys.argv) < 2:
     exit()
-if (not have_protocol(sys.argv[1])):
+if not have_protocol(sys.argv[1]):
     print ('Expected absolute link')
     exit()
-startedNetloc = urlparse(sys.argv[1]).netloc
-print (startedNetloc)
+started_domen = get_domen_name(urlparse(sys.argv[1]).netloc)
 stack.append(sys.argv[1])
-check_URL()
+check_url()
 perform_output()
-#ошибка в нетлоце который != имени домена
