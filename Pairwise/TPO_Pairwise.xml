@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System name="TPO_Pairwise">
+  <Parameters>
+    <Parameter id="0" name="Browser" type="1">
+      <values>
+        <value>IE 10</value>
+        <value>IE 11</value>
+        <value>Microsoft Edge</value>
+        <value>Chrome</value>
+        <value>Firefox</value>
+        <value>Safari</value>
+        <value>Opera</value>
+      </values>
+      <basechoices />
+    </Parameter>
+    <Parameter id="1" name="Screen_Resolution" type="1">
+      <values>
+        <value>1366x768</value>
+        <value>1920x1080</value>
+        <value>1280x1024</value>
+        <value>1024x768</value>
+        <value>1600x900</value>
+      </values>
+      <basechoices />
+    </Parameter>
+    <Parameter id="2" name="OS" type="1">
+      <values>
+        <value>W7</value>
+        <value>W8</value>
+        <value>W8.1</value>
+        <value>W10</value>
+        <value>W XP</value>
+        <value>OS X</value>
+        <value>Linux distr</value>
+      </values>
+      <basechoices />
+    </Parameter>
+    <Parameter id="3" name="Java_Ver" type="1">
+      <values>
+        <value>SE 9</value>
+        <value>SE 10</value>
+        <value>SE 8</value>
+      </values>
+      <basechoices />
+    </Parameter>
+  </Parameters>
+  <OutputParameters />
+  <Relations />
+  <Constraints>
+    <Constraint text="(OS = &quot;Linux distr&quot;) =&gt; (Browser = &quot;Chrome&quot; || Browser = &quot;Firefox&quot;) ">
+      <Parameters>
+        <Parameter name="OS" />
+        <Parameter name="Browser" />
+        <Parameter name="Browser" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(OS = &quot;OS X&quot;) =&gt; (Browser = &quot;Chrome&quot; || Browser = &quot;Firefox&quot; || Browser = &quot;Safari&quot; || Browser = &quot;Opera&quot;)">
+      <Parameters>
+        <Parameter name="OS" />
+        <Parameter name="Browser" />
+        <Parameter name="Browser" />
+        <Parameter name="Browser" />
+        <Parameter name="Browser" />
+      </Parameters>
+    </Constraint>
+    <Constraint text="(Browser = &quot;Microsoft Edge&quot;) =&gt; (OS = &quot;W10&quot;)">
+      <Parameters>
+        <Parameter name="Browser" />
+        <Parameter name="OS" />
+      </Parameters>
+    </Constraint>
+  </Constraints>
+  <Testset doi="2">
+    <Testcase TCNo="0">
+      <Value>1</Value>
+      <Value>IE 10</Value>
+      <Value>1920x1080</Value>
+      <Value>W7</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="1">
+      <Value>2</Value>
+      <Value>IE 10</Value>
+      <Value>1280x1024</Value>
+      <Value>W8</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="2">
+      <Value>3</Value>
+      <Value>IE 10</Value>
+      <Value>1024x768</Value>
+      <Value>W8.1</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="3">
+      <Value>4</Value>
+      <Value>IE 10</Value>
+      <Value>1600x900</Value>
+      <Value>W10</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="4">
+      <Value>5</Value>
+      <Value>IE 10</Value>
+      <Value>1366x768</Value>
+      <Value>W XP</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="5">
+      <Value>6</Value>
+      <Value>IE 11</Value>
+      <Value>1280x1024</Value>
+      <Value>W7</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="6">
+      <Value>7</Value>
+      <Value>IE 11</Value>
+      <Value>1024x768</Value>
+      <Value>W8</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="7">
+      <Value>8</Value>
+      <Value>IE 11</Value>
+      <Value>1600x900</Value>
+      <Value>W8.1</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="8">
+      <Value>9</Value>
+      <Value>IE 11</Value>
+      <Value>1366x768</Value>
+      <Value>W10</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="9">
+      <Value>10</Value>
+      <Value>IE 11</Value>
+      <Value>1920x1080</Value>
+      <Value>W XP</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="10">
+      <Value>11</Value>
+      <Value>Microsoft Edge</Value>
+      <Value>1280x1024</Value>
+      <Value>W10</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="11">
+      <Value>12</Value>
+      <Value>Chrome</Value>
+      <Value>1024x768</Value>
+      <Value>W7</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="12">
+      <Value>13</Value>
+      <Value>Chrome</Value>
+      <Value>1600x900</Value>
+      <Value>W8</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="13">
+      <Value>14</Value>
+      <Value>Chrome</Value>
+      <Value>1366x768</Value>
+      <Value>W8.1</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="14">
+      <Value>15</Value>
+      <Value>Chrome</Value>
+      <Value>1920x1080</Value>
+      <Value>W10</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="15">
+      <Value>16</Value>
+      <Value>Chrome</Value>
+      <Value>1280x1024</Value>
+      <Value>W XP</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="16">
+      <Value>17</Value>
+      <Value>Chrome</Value>
+      <Value>1024x768</Value>
+      <Value>OS X</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="17">
+      <Value>18</Value>
+      <Value>Chrome</Value>
+      <Value>1600x900</Value>
+      <Value>Linux distr</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="18">
+      <Value>19</Value>
+      <Value>Firefox</Value>
+      <Value>1366x768</Value>
+      <Value>W7</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="19">
+      <Value>20</Value>
+      <Value>Firefox</Value>
+      <Value>1920x1080</Value>
+      <Value>W8</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="20">
+      <Value>21</Value>
+      <Value>Firefox</Value>
+      <Value>1280x1024</Value>
+      <Value>W8.1</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="21">
+      <Value>22</Value>
+      <Value>Firefox</Value>
+      <Value>1024x768</Value>
+      <Value>W10</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="22">
+      <Value>23</Value>
+      <Value>Firefox</Value>
+      <Value>1600x900</Value>
+      <Value>W XP</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="23">
+      <Value>24</Value>
+      <Value>Firefox</Value>
+      <Value>1366x768</Value>
+      <Value>OS X</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="24">
+      <Value>25</Value>
+      <Value>Firefox</Value>
+      <Value>1920x1080</Value>
+      <Value>Linux distr</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="25">
+      <Value>26</Value>
+      <Value>Safari</Value>
+      <Value>1600x900</Value>
+      <Value>W7</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="26">
+      <Value>27</Value>
+      <Value>Safari</Value>
+      <Value>1366x768</Value>
+      <Value>W8</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="27">
+      <Value>28</Value>
+      <Value>Safari</Value>
+      <Value>1920x1080</Value>
+      <Value>W8.1</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="28">
+      <Value>29</Value>
+      <Value>Safari</Value>
+      <Value>1280x1024</Value>
+      <Value>W10</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="29">
+      <Value>30</Value>
+      <Value>Safari</Value>
+      <Value>1024x768</Value>
+      <Value>W XP</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="30">
+      <Value>31</Value>
+      <Value>Safari</Value>
+      <Value>1600x900</Value>
+      <Value>OS X</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="31">
+      <Value>32</Value>
+      <Value>Opera</Value>
+      <Value>1366x768</Value>
+      <Value>W7</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="32">
+      <Value>33</Value>
+      <Value>Opera</Value>
+      <Value>1920x1080</Value>
+      <Value>W8</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="33">
+      <Value>34</Value>
+      <Value>Opera</Value>
+      <Value>1280x1024</Value>
+      <Value>W8.1</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="34">
+      <Value>35</Value>
+      <Value>Opera</Value>
+      <Value>1024x768</Value>
+      <Value>W10</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="35">
+      <Value>36</Value>
+      <Value>Opera</Value>
+      <Value>1600x900</Value>
+      <Value>W XP</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="36">
+      <Value>37</Value>
+      <Value>Opera</Value>
+      <Value>1920x1080</Value>
+      <Value>OS X</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="37">
+      <Value>38</Value>
+      <Value>Chrome</Value>
+      <Value>1366x768</Value>
+      <Value>Linux distr</Value>
+      <Value>SE 10</Value>
+    </Testcase>
+    <Testcase TCNo="38">
+      <Value>39</Value>
+      <Value>Firefox</Value>
+      <Value>1280x1024</Value>
+      <Value>OS X</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="39">
+      <Value>40</Value>
+      <Value>Chrome</Value>
+      <Value>1280x1024</Value>
+      <Value>Linux distr</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="40">
+      <Value>41</Value>
+      <Value>Chrome</Value>
+      <Value>1024x768</Value>
+      <Value>Linux distr</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="41">
+      <Value>42</Value>
+      <Value>Microsoft Edge</Value>
+      <Value>1366x768</Value>
+      <Value>W10</Value>
+      <Value>SE 8</Value>
+    </Testcase>
+    <Testcase TCNo="42">
+      <Value>43</Value>
+      <Value>Microsoft Edge</Value>
+      <Value>1920x1080</Value>
+      <Value>W10</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="43">
+      <Value>44</Value>
+      <Value>Microsoft Edge</Value>
+      <Value>1024x768</Value>
+      <Value>W10</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+    <Testcase TCNo="44">
+      <Value>45</Value>
+      <Value>Microsoft Edge</Value>
+      <Value>1600x900</Value>
+      <Value>W10</Value>
+      <Value>SE 9</Value>
+    </Testcase>
+  </Testset>
+  <Header>
+    <Value />
+    <Value>BROWSER</Value>
+    <Value>SCREEN_RESOLUTION</Value>
+    <Value>OS</Value>
+    <Value>JAVA_VER</Value>
+  </Header>
+  <Stat-Data>
+    <ExecutionTime>0.218</ExecutionTime>
+    <MaxDomainSize>7</MaxDomainSize>
+    <MinDomainSize>3</MinDomainSize>
+    <TotalNoOfCombination>164</TotalNoOfCombination>
+    <TotalNoOfTests>45</TotalNoOfTests>
+    <Algorithm>IPOG</Algorithm>
+  </Stat-Data>
+</System>
+
