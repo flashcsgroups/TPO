@@ -39,13 +39,15 @@ def check_url():
             data = html.read()
             code = html.getcode()
             all_pages[url] = code
-            if code in [200, 301] and len(stack) < MAX_DEPTH:
+            if code in [200, 301]:
                 urls = []
                 urls.extend(re.findall('<a href="(.+?)".+?>', data, re.DOTALL))
                 for temp_url in urls:
                     if temp_url == '/' or temp_url[0] == '"' or temp_url[0] == '{':
                         continue
-                    if not have_protocol(temp_url):
+                    if temp_url == ' /partners/developers/':
+                        temp_url = urljoin(url, '/partners/developers/')
+                    elif not have_protocol(temp_url):
                         temp_url = urljoin(url, temp_url)
                     if get_domen_name(urlparse(temp_url).netloc) == started_domen:
                         if temp_url not in all_pages.keys():

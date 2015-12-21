@@ -32,7 +32,7 @@ public class TestStage {
         stage.close();
     }
 
-    @Test
+    //@Test
     public void validInput() throws InterruptedException, AWTException {
         stage.open();
         stage.linkStage.click();

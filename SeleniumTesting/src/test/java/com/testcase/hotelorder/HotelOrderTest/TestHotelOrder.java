@@ -50,7 +50,9 @@ public class TestHotelOrder {
         hotelOrder.open();
         hotelOrder.linkBecomePartners.click();
         hotelOrder.checkBoxUniqueSite.click();
+        Thread.sleep(10000);
         hotelOrder.checkBoxTemplateSite.click();
+        Thread.sleep(10000);
         hotelOrder.textBoxName.sendKeys("test");
         hotelOrder.textBoxPhone.sendKeys("158611");
         hotelOrder.textBoxEMail.sendKeys("afasfsafa@asgag.srg");
@@ -172,7 +174,7 @@ public class TestHotelOrder {
         hotelOrder.textBoxHotelName.sendKeys("test");
         hotelOrder.wfs.click();
 
-        Assert.assertTrue("Invalid Email passed", hotelOrder.isTextPresent("Спасибо, ваша заявка принята"));
+        Assert.assertFalse("Invalid Email passed", hotelOrder.isTextPresent("Спасибо, ваша заявка принята"));
         hotelOrder.close();
     }
 }
